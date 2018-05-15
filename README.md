@@ -43,9 +43,9 @@ __Important__: Don't forget to push your git commits at the end of the test.
 
 2. Determine the frequency distribution of organization `FitX ` w.r.t. `quality`.
 
-3. Determine a cross table for `Douglas` w.r.t. `age group` and `quality` where entries are numbers of feedbacks.
+3. Determine a ranking for all branches of `BMW` w.r.t. average of `quality`.
 
-4. Determine a ranking for all branches of `BMW` w.r.t. average of `quality`.
+4. Determine a cross table for `Douglas` w.r.t. `age group` and `quality` where entries are numbers of feedbacks.
 
 5. Calculate all net promoter scores* for all organizations and display them in a table.
 

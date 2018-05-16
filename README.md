@@ -12,7 +12,9 @@ We have prepared a MacBook Pro with an editor (Atom), git and a sample Rails app
 
 The Rails application has three models according to the following database schema.
 
-![db_schema](db_schema.png)
+![db_schema](public/images/db_schema.png)
+
+There is already a `dashboard_controller` and a corresponding route and view which can be used for solving the tasks.
 
 The sample database contains four organizations (_Douglas_, _FitX_, _BMW_, _REWE_), 40 branches (each organization has 10 branches) and 10.000 feedbacks.
 
@@ -32,20 +34,22 @@ Data is saved in table `feedbacks` w.r.t. attributes `quality`, `age_group`, `np
 - `experienced_at` (timestamp of feedback)
 - `branch` (in which branch feedback was taken)
 
+The former two meta attributes are not important for this test and need not to be considered.
+
 
 ## Task
 
 The task is to implement a single page where some aggregated reports (mainly tables) of the collected feedbacks are listed.
 
-__Important__: Don't forget to push your git commits at the end of the test.
+__Important__: Don't forget to commit your changes.
 
 1. Calculate the number of feedbacks of branch `Branch REWE 05`.
 
 2. Determine the frequency distribution of organization `FitX ` w.r.t. `quality`.
 
-3. Determine a ranking for all branches of `BMW` w.r.t. average of `quality`.
+3. Determine a cross table for `Douglas` w.r.t. `age group` and `quality` where entries are numbers of feedbacks.
 
-4. Determine a cross table for `Douglas` w.r.t. `age group` and `quality` where entries are numbers of feedbacks.
+4. Determine a ranking for all branches of `BMW` w.r.t. average of `quality`.
 
 5. Calculate all net promoter scores* for all organizations and display them in a table.
 
@@ -54,4 +58,6 @@ _*CALCULATION OF NPS: Those who respond to a NPS question with a score of 9 to 1
 
 ## Preview
 
-This is how your report should look like:
+This is how your report should look like (note: totals will be different due to randomization):
+
+![db_schema](public/images/preview.png)

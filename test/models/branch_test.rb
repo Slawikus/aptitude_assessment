@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class BranchTest < ActiveSupport::TestCase
-  test 'some dummy test' do
-    assert true
+  test 'it has following attributes' do
+    assert_equal %w[id name created_at updated_at organization_id], Branch.column_names
   end
 end

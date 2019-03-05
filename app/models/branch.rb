@@ -2,5 +2,5 @@
 
 class Branch < ActiveRecord::Base
   belongs_to :organization
-  has_many :survey_sessions
+  has_many :feedbacks
 end

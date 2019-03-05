@@ -7,4 +7,8 @@ class Branch < ActiveRecord::Base
   def feedbacks_count
     feedbacks.count
   end
+
+  def average_quality
+    feedbacks.average(:quality)
+  end
 end

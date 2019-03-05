@@ -18,9 +18,25 @@ class OrganizationTest < ActiveSupport::TestCase
     Feedback.create(branch: branch_2, quality: 4)
     Feedback.create(branch: branch_2, quality: 5)
 
-
     expected_distribution = { 1 => 1, 4 => 2, 5 => 1 }
 
     assert_equal expected_distribution, organization.quality_frequency_distribution
+  end
+
+  test 'it computes average  quality ranking for all branches' do
+    organization = Organization.create(name: 'Some organisation')
+
+    branch_1 = Branch.create(name: 'Some branch', organization: organization)
+    Feedback.create(branch: branch_1, quality: 1)
+    Feedback.create(branch: branch_1, quality: 4)
+    Feedback.create(branch: branch_1, quality: 1)
+
+    branch_2 = Branch.create(name: 'Another branch', organization: organization)
+    Feedback.create(branch: branch_2, quality: 4)
+    Feedback.create(branch: branch_2, quality: 5)
+
+    expected_distribution = [branch_2, branch_1]
+
+    assert_equal expected_distribution, organization.branch_ranking_by_average_quality
   end
 end

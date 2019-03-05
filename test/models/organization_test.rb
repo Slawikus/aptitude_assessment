@@ -39,4 +39,20 @@ class OrganizationTest < ActiveSupport::TestCase
 
     assert_equal expected_distribution, organization.branch_ranking_by_average_quality
   end
+
+  test 'it computes net promoter score for organization' do
+    organization = Organization.create(name: 'Some organisation')
+
+    branch_1 = Branch.create(name: 'Some branch', organization: organization)
+    Feedback.create(branch: branch_1, quality: 1)
+    Feedback.create(branch: branch_1, quality: 4)
+    Feedback.create(branch: branch_1, quality: 7)
+
+    branch_2 = Branch.create(name: 'Another branch', organization: organization)
+    Feedback.create(branch: branch_2, quality: 4)
+    Feedback.create(branch: branch_2, quality: 9)
+    Feedback.create(branch: branch_2, quality: 10)
+
+    assert_in_delta -16.6666666666666, organization.net_promoter_score
+  end
 end
